@@ -6,7 +6,7 @@
 /*   By: oaboulgh <oaboulgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:54:54 by oaboulgh          #+#    #+#             */
-/*   Updated: 2022/10/11 18:22:46 by oaboulgh         ###   ########.fr       */
+/*   Updated: 2022/10/21 17:02:30 by oaboulgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		ft_memcpy(dst, src, len);
 	return (dst);
 }
+/*
+int main()
+{
+	char str[] = "hello world";
+	char *dst = str+1;
+	printf("%s", ft_memcpy(dst, str, 10));
+}
+*/

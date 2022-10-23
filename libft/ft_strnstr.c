@@ -6,7 +6,7 @@
 /*   By: oaboulgh <oaboulgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 04:17:17 by oaboulgh          #+#    #+#             */
-/*   Updated: 2022/10/13 05:21:01 by oaboulgh         ###   ########.fr       */
+/*   Updated: 2022/10/23 13:54:19 by oaboulgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	j = 0;
 	arr = (char *)haystack;
 	to_find = (char *)needle;
-	if (to_find[i] == '\0')
+	if (to_find[i] == 0)
 		return (arr);
-	while (to_find[j] && arr[i] && i < len)
+	while (arr[i] && i < len)
 	{
-		j = 0;
-		while (to_find[j] == arr[i + j])
+		while (to_find[j] == arr[i + j] && (i + j) < len)
 		{
 			j++;
-			if (to_find[j] == '\0' && i < len - j)
+			if (to_find[j] == '\0' && i <= len - j)
 				return (&arr[i]);
 		}
 		i++;
+		j = 0;
 	}
 	return (0);
 }

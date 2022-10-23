@@ -6,17 +6,14 @@
 /*   By: oaboulgh <oaboulgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 20:56:55 by oaboulgh          #+#    #+#             */
-/*   Updated: 2022/10/10 21:13:19 by oaboulgh         ###   ########.fr       */
+/*   Updated: 2022/10/16 10:31:27 by oaboulgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int a)
+int	ft_isprint(int c)
 {
-	unsigned char	c;
-
-	c = (unsigned char)a;
 	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);

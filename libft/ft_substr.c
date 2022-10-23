@@ -1,28 +1,40 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oaboulgh <oaboulgh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/15 20:55:34 by oaboulgh          #+#    #+#             */
+/*   Updated: 2022/10/23 13:42:12 by oaboulgh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
-	size_t		j;
-	char		*p;
+	size_t	j;
+	size_t	sum_of_size;
+	char	*p;
 
-	p = (char *)(malloc(sizeof(*s) * (len + 1)));
-	i = 0;
 	j = 0;
-	if (!p)
-	{
+	sum_of_size = ft_strlen(s) + start;
+	if (s == NULL)
 		return (0);
-	}
-	while (s[i])
+	if (ft_strlen(s) < start)
 	{
-		if (i > start && j < len)
-		{
-			p[j] = s[i];
-			j++;
-		}
-		i++;
+		p = malloc(1);
+		*p = '\0';
+		return (p);
 	}
+	if (sum_of_size < len)
+		len = sum_of_size;
+	p = (char *)(malloc((len + 1) * sizeof(char)));
+	if (!p)
+		return (0);
+	while (s[start] && j < len)
+		p[j++] = s[start++];
 	p[j] = '\0';
 	return (p);
 }

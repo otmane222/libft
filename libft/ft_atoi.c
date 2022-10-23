@@ -6,16 +6,43 @@
 /*   By: oaboulgh <oaboulgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 08:09:25 by oaboulgh          #+#    #+#             */
-/*   Updated: 2022/10/13 08:33:08 by oaboulgh         ###   ########.fr       */
+/*   Updated: 2022/10/23 13:34:38 by oaboulgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	handler_long_atoi(long long int n, long long int o)
+{
+	if ((n / 10) == o)
+		return (0);
+	return (1);
+}
+
+static int	rtn_atoi(long long int res, int sign, const char *str)
+{
+	long long int	old_res;
+
+	while (*str >= '0' && *str <= '9')
+	{
+		old_res = res;
+		res = res * 10 + (*str - '0');
+		if (handler_long_atoi(res, old_res) == 0)
+			str++;
+		else if (handler_long_atoi(res, old_res) == 1)
+		{
+			if (sign == -1)
+				return (0);
+			return (-1);
+		}
+	}
+	return (res);
+}
+
 int	ft_atoi(const char *str)
 {
-	int	res;
-	int	sign;
+	long long int		res;
+	int					sign;
 
 	sign = 1;
 	res = 0;
@@ -27,7 +54,5 @@ int	ft_atoi(const char *str)
 			sign = sign * -1;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
-		res = res * 10 + (*str++ - '0');
-	return (res * sign);
+	return (rtn_atoi(res, sign, str) * sign);
 }
