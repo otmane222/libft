@@ -6,7 +6,7 @@
 /*   By: oaboulgh <oaboulgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 14:56:04 by oaboulgh          #+#    #+#             */
-/*   Updated: 2022/10/22 18:46:07 by oaboulgh         ###   ########.fr       */
+/*   Updated: 2022/10/25 01:16:52 by oaboulgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
 
+	if (!s)
+		return ;
 	i = 0;
 	while (s[i] != '\0')
 	{

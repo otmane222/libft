@@ -6,7 +6,7 @@
 /*   By: oaboulgh <oaboulgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 20:55:34 by oaboulgh          #+#    #+#             */
-/*   Updated: 2022/10/23 13:42:12 by oaboulgh         ###   ########.fr       */
+/*   Updated: 2022/10/25 01:15:04 by oaboulgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	sum_of_size;
 	char	*p;
 
-	j = 0;
-	sum_of_size = ft_strlen(s) + start;
 	if (s == NULL)
 		return (0);
+	j = 0;
+	sum_of_size = ft_strlen(s) + start;
 	if (ft_strlen(s) < start)
 	{
 		p = malloc(1);
